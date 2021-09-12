@@ -18,6 +18,15 @@ namespace RadioApp.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             CrossMediaManager.Current.Init(this);
+            var pixels = Resources.DisplayMetrics.WidthPixels;
+            var scale = Resources.DisplayMetrics.Density;
+            var dps = (double)((pixels - 0.5f) / scale);
+            var ScreenWidth = (int)dps;
+            App.screenWidth = ScreenWidth;
+            pixels = Resources.DisplayMetrics.HeightPixels;
+            dps = (double)((pixels - 0.5f) / scale);
+            var ScreenHeight = (int)dps;
+            App.screenHeight = ScreenHeight;
 
             LoadApplication(new App());
         }

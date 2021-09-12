@@ -3,18 +3,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RadioApp.Views.FacebookPage"
              xmlns:vm="clr-namespace:RadioApp.ViewModels"
+             xmlns:fontAwesome="clr-namespace:FontAwesome"
              Title="{Binding Title}"
+             Shell.NavBarIsVisible="False"
              >
     <StackLayout>
 <StackLayout Orientation="Horizontal" BackgroundColor="Black">
-            <Button Text="Back" HorizontalOptions="StartAndExpand" Clicked="OnBackButtonClicked" />
-            <Button Text="Forward" HorizontalOptions="EndAndExpand" Clicked="OnForwardButtonClicked" />
+            <Button
+                Text="{x:Static fontAwesome:FontAwesomeIcons.ArrowLeft}"
+                FontFamily="FAS"
+                FontSize="20"
+                HorizontalOptions="StartAndExpand"
+                Clicked="OnBackButtonClicked"
+                BackgroundColor="#000"/>
+            <Button
+                Text="{x:Static fontAwesome:FontAwesomeIcons.ArrowRight}"
+                FontFamily="FAS"
+                FontSize="20"
+                HorizontalOptions="EndAndExpand"
+                Clicked="OnForwardButtonClicked"
+                BackgroundColor="#000"/>
    
         </StackLayout>
      <WebView
         x:Name="webview"
-WidthRequest="1000" HeightRequest="1000"
-        >
+WidthRequest="1000" HeightRequest="1000">
 
     </WebView>
         </StackLayout>

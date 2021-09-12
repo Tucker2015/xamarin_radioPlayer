@@ -4,6 +4,7 @@
              x:Class="RadioApp.Views.AboutPage"
              xmlns:vm="clr-namespace:RadioApp.ViewModels"
              Title="About"
+             Shell.NavBarIsVisible="False"
              >
 
     <StackLayout BackgroundColor="LightGray">

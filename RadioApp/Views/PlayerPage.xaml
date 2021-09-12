@@ -1,30 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:fontAwesome="clr-namespace:FontAwesome"
              xmlns:vs="clr-namespace:VolumeSliderPlugin.Shared;assembly=VolumeSliderPlugin"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="RadioApp.Views.PlayerPage"
              xmlns:vm="clr-namespace:RadioApp.ViewModels"
-             Title="Player">
-
-    <StackLayout BackgroundColor="LightGray">
-        <Label  Text="Peoples City Radio" FontSize="24" HorizontalOptions="Center" FontFamily="Poppins" TextColor="Black" />
-        <StackLayout Margin="0,20,0,0" Padding="20">
+             Shell.NavBarIsVisible="False"
+             Title="Player"
+             >
+    
+    <StackLayout
+        BackgroundColor="#aaa"
+        >
+        <StackLayout Margin="0,20,0,0">
         
             <Frame
-                WidthRequest="300"
-                HeightRequest="300"
+             
                 HasShadow="True"
-                Padding="0"
+                HeightRequest="250"
+                WidthRequest="250"
                 IsClippedToBounds="True"
                 CornerRadius="20"
                 HorizontalOptions="Center"
                 >
             <Image
-            
             Source="https://ktinternet.net/radio-logos/pcr_logo.jpg"
            VerticalOptions="Center"
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+                Aspect="AspectFit"
+                />
                 </Frame>
         
             </StackLayout>
@@ -33,25 +40,32 @@
                 Grid.Row="1"
                 Grid.Column="1"
                 Margin="5,0,5,0"
-                FontSize="24"
-                HeightRequest="35"
+                FontSize="18"
+            FontFamily="Poppins"
                 HorizontalOptions="FillAndExpand"
                 HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center" 
                 LineBreakMode="TailTruncation"
                 MaxLines="2"
-                Text="Track Details"
+                Text="Peoples City Radio - Live"
                 TextColor="Black"
-                VerticalTextAlignment="Center" />
-        <Button Text="{x:Static fontAwesome:FontAwesomeIcons.Play}"
-                FontSize="40"
-                HeightRequest="80" WidthRequest="80"
-                CornerRadius="40"
-                HorizontalOptions="Center"
-                FontFamily="FAS"
-                Clicked="PlayPauseButton_Clicked"
                 />
          
-        <vs:VolumeSlider x:Name="volumeSlider" Volume="0.5" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="EndAndExpand" Margin="20"/>
+        <vs:VolumeSlider x:Name="volumeSlider" Volume="0.5" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="EndAndExpand" Margin="10"/>
+        <pv:PancakeView Margin="10"
+                        HeightRequest="60" WidthRequest="60"
+                        CornerRadius="40"
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center" >
+            <pv:PancakeView.BackgroundGradientStops>
+                            <pv:GradientStopCollection>
+                                <pv:GradientStop Color="#5c8bd6" Offset="0" />
+                                <pv:GradientStop Color="#1f4f9c" Offset="1" />
+                            </pv:GradientStopCollection>
+                        </pv:PancakeView.BackgroundGradientStops>
+            <Button Clicked="PlayPauseButton_Clicked" Text="{x:Static fontAwesome:FontAwesomeIcons.Play}"  FontFamily="FAS" FontSize="24" HorizontalOptions="Center" BackgroundColor="Transparent"/>
+            </pv:PancakeView>
+        
     </StackLayout>
 
 </ContentPage>

@@ -9,6 +9,8 @@ namespace RadioApp
 {
     public partial class App : Application
     {
+        public static int screenWidth;
+        public static int screenHeight;
 
         public App()
         {
@@ -16,6 +18,8 @@ namespace RadioApp
             CrossMediaManager.Current.Init();
             MainPage = new AppShell();
         }
+
+       
 
         protected override void OnStart()
         {
