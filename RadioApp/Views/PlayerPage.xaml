@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fontAwesome="clr-namespace:FontAwesome"
+             xmlns:vs="clr-namespace:VolumeSliderPlugin.Shared;assembly=VolumeSliderPlugin"
+             x:Class="RadioApp.Views.PlayerPage"
+             xmlns:vm="clr-namespace:RadioApp.ViewModels"
+             Title="Player">
+
+    <StackLayout BackgroundColor="LightGray">
+        <Label  Text="Peoples City Radio" FontSize="24" HorizontalOptions="Center" FontFamily="Poppins" TextColor="Black" />
+        <StackLayout Margin="0,20,0,0" Padding="20">
+        
+            <Frame
+                WidthRequest="300"
+                HeightRequest="300"
+                HasShadow="True"
+                Padding="0"
+                IsClippedToBounds="True"
+                CornerRadius="20"
+                HorizontalOptions="Center"
+                >
+            <Image
+            
+            Source="https://ktinternet.net/radio-logos/pcr_logo.jpg"
+           VerticalOptions="Center"
+            HorizontalOptions="Center" />
+                </Frame>
+        
+            </StackLayout>
+        <Label
+                x:Name="LabelMediaDetails"
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="5,0,5,0"
+                FontSize="24"
+                HeightRequest="35"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Center"
+                LineBreakMode="TailTruncation"
+                MaxLines="2"
+                Text="Track Details"
+                TextColor="Black"
+                VerticalTextAlignment="Center" />
+        <Button Text="{x:Static fontAwesome:FontAwesomeIcons.Play}"
+                FontSize="40"
+                HeightRequest="80" WidthRequest="80"
+                CornerRadius="40"
+                HorizontalOptions="Center"
+                FontFamily="FAS"
+                Clicked="PlayPauseButton_Clicked"
+                />
+         
+        <vs:VolumeSlider x:Name="volumeSlider" Volume="0.5" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="EndAndExpand" Margin="20"/>
+    </StackLayout>
+
+</ContentPage>

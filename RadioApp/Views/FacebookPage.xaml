@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RadioApp.Views.FacebookPage"
+             xmlns:vm="clr-namespace:RadioApp.ViewModels"
+             Title="{Binding Title}"
+             >
+    <StackLayout>
+<StackLayout Orientation="Horizontal" BackgroundColor="Black">
+            <Button Text="Back" HorizontalOptions="StartAndExpand" Clicked="OnBackButtonClicked" />
+            <Button Text="Forward" HorizontalOptions="EndAndExpand" Clicked="OnForwardButtonClicked" />
+   
+        </StackLayout>
+     <WebView
+        x:Name="webview"
+WidthRequest="1000" HeightRequest="1000"
+        >
+
+    </WebView>
+        </StackLayout>
+</ContentPage>
