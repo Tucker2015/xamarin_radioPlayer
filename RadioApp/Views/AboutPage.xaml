@@ -7,7 +7,7 @@
              >
 
     <StackLayout BackgroundColor="LightGray">
-        
+        <Label Text="About Page" FontSize="24" FontFamily="PoppinsBold" TextColor="#000" HorizontalOptions="Center" VerticalOptions="Center"/>
 
     </StackLayout>
     
