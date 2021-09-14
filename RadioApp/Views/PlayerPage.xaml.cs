@@ -13,10 +13,16 @@ namespace RadioApp.Views
         public PlayerPage()
         {
             InitializeComponent();
-            //SizeChanged += MainPageSizeChanged;
 
+            //var deviceInfoService = DependencyService.Get<IDeviceInfoService>();
+
+            //if (deviceInfoService != null)
+            //{
+            //    DeviceModelStack.Text = deviceInfoService.GetDeviceModel();
+                
+            //}
         }
-
+        //SizeChanged += MainPageSizeChanged;
         //void MainPageSizeChanged(object sender, EventArgs e)
         //{
         //    albumArt.WidthRequest = (App.screenWidth * 50) / 150;

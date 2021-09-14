@@ -10,36 +10,49 @@
              xmlns:vm="clr-namespace:RadioApp.ViewModels"
              Shell.NavBarIsVisible="False"
              Title="Player"
+             BackgroundColor="#aaa"
              >
-    
-    <StackLayout
-        BackgroundColor="#aaa"
-        >
-        <StackLayout Margin="0,20,0,0">
-        
+
+    <StackLayout>
+        <StackLayout>
+
             <Frame
-             
+                
                 HasShadow="True"
-                HeightRequest="250"
-                WidthRequest="250"
+                BackgroundColor="#fff"
                 IsClippedToBounds="True"
                 CornerRadius="20"
                 HorizontalOptions="Center"
                 >
-            <Image
+                <Frame.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS" Value="300" />
+                        <On Platform="Android" Value="200" />
+                    </OnPlatform>
+                </Frame.HeightRequest>
+                <Frame.WidthRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS" Value="300" />
+                        <On Platform="Android" Value="200" />
+                    </OnPlatform>
+                </Frame.WidthRequest>
+                <Frame.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0,60,0,0" />
+                        <On Platform="Android" Value="0,20,0,0" />
+                    </OnPlatform>
+                </Frame.Margin>
+                <Image
             Source="https://ktinternet.net/radio-logos/pcr_logo.jpg"
-           VerticalOptions="Center"
-            HorizontalOptions="Center"
-                Aspect="AspectFit"
+                Aspect="AspectFill"
                 />
-                </Frame>
-        
-            </StackLayout>
-        <Label
+            </Frame>
+
+        </StackLayout>
+        <StackLayout Orientation="Vertical" Spacing="30" HorizontalOptions="FillAndExpand">
+            <Label
                 x:Name="LabelMediaDetails"
-                Grid.Row="1"
-                Grid.Column="1"
-                Margin="5,0,5,0"
+                Margin="0,20,0,0"
                 FontSize="18"
             FontFamily="Poppins"
                 HorizontalOptions="FillAndExpand"
@@ -50,22 +63,28 @@
                 Text="Peoples City Radio - Live"
                 TextColor="Black"
                 />
-         
-        <vs:VolumeSlider x:Name="volumeSlider" Volume="0.5" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="EndAndExpand" Margin="10"/>
-        <pv:PancakeView Margin="10"
-                        HeightRequest="60" WidthRequest="60"
-                        CornerRadius="40"
-                        HorizontalOptions="Center" 
-                        VerticalOptions="Center" >
-            <pv:PancakeView.BackgroundGradientStops>
-                            <pv:GradientStopCollection>
-                                <pv:GradientStop Color="#5c8bd6" Offset="0" />
-                                <pv:GradientStop Color="#1f4f9c" Offset="1" />
-                            </pv:GradientStopCollection>
-                        </pv:PancakeView.BackgroundGradientStops>
-            <Button Clicked="PlayPauseButton_Clicked" Text="{x:Static fontAwesome:FontAwesomeIcons.Play}"  FontFamily="FAS" FontSize="24" HorizontalOptions="Center" BackgroundColor="Transparent"/>
+            <vs:VolumeSlider x:Name="volumeSlider" Volume="0.5" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="End" Margin="10"/>
+            <pv:PancakeView  HeightRequest="70" WidthRequest="70" CornerRadius="35" HorizontalOptions="Center" 
+                            VerticalOptions="EndAndExpand" Margin="0,0,0,10">
+                <pv:PancakeView.Shadow>
+                    <pv:DropShadow Color="#000000" Offset="7,7" BlurRadius="5"/>
+                </pv:PancakeView.Shadow>
+                <pv:PancakeView.BackgroundGradientStops>
+                    <pv:GradientStopCollection>
+                        <pv:GradientStop Color="#2e6fd9" Offset="0" />
+                        <pv:GradientStop Color="#455d85" Offset="1" />
+                    </pv:GradientStopCollection>
+                </pv:PancakeView.BackgroundGradientStops>
+                <pv:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="PlayPauseButton_Clicked"/>
+                </pv:PancakeView.GestureRecognizers>
+
+                <Image Source="play" HeightRequest="25" HorizontalOptions="Center" VerticalOptions="Center"/>
+
             </pv:PancakeView>
-        
+        </StackLayout>
+
+
     </StackLayout>
 
 </ContentPage>
